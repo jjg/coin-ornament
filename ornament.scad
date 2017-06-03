@@ -1,4 +1,4 @@
-COIN_DIAMETER = 37;
+COIN_DIAMETER = 40;
 COIN_THICKNESS = 3;
 
 difference(){
@@ -8,7 +8,11 @@ difference(){
          // hanging loop
         translate([COIN_DIAMETER - 20,0,0]){
             difference(){
+                
+                // loop
                 cylinder(r=10,h=COIN_THICKNESS + 2,$fn=40);
+                
+                //hole
                 translate([0,0,-1]){
                     cylinder(r=8,h=COIN_THICKNESS + 4,$fn=40);
                 }
@@ -16,16 +20,16 @@ difference(){
         }
         
         // main body
-        cylinder(r=(COIN_DIAMETER/2) + COIN_THICKNESS, h=COIN_THICKNESS + 2,$fn=(COIN_DIAMETER*2));
+        cylinder(r=(COIN_DIAMETER/2) + 1, h=COIN_THICKNESS + 2,$fn=(COIN_DIAMETER*2));
     }
  
-    // coin opening
+    // opening through
     translate([0,0,-1]){
-        cylinder(r=(COIN_DIAMETER/2), h=COIN_THICKNESS + 4,$fn=(COIN_DIAMETER*2));
+        cylinder(r=(COIN_DIAMETER/2) - 1, h=COIN_THICKNESS + 4,$fn=(COIN_DIAMETER*2));
     }
     
-    // lip opening
+    // opening to lip
     translate([0,0,1]){
-        cylinder(r=((COIN_DIAMETER/2) + COIN_THICKNESS - 1), h=COIN_THICKNESS + 2,$fn=(COIN_DIAMETER*2));
+        cylinder(r=COIN_DIAMETER/2, h=COIN_THICKNESS + 2,$fn=(COIN_DIAMETER*2));
     }
 }
