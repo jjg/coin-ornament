@@ -1,4 +1,4 @@
-COIN_DIAMETER = 38;
+COIN_DIAMETER = 37;
 COIN_THICKNESS = 3;
 
 difference(){
